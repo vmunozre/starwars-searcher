@@ -8,7 +8,8 @@ class Carousel extends Component {
         super(props)
         this.state = { 
             index_item: 0,
-            items_backup: []
+            items_backup: [],
+            arrow_locked: false
         }
         this.onClickArrow = this.onClickArrow.bind(this);
     }
@@ -76,12 +77,14 @@ class Carousel extends Component {
     }
 
     onClickArrow(_ev){
-        var data_next = parseInt(_ev.target.getAttribute('data-next')),
-            left_arrow = document.getElementById('left-arrow'),
-            right_arrow = document.getElementById('right-arrow'),
-            left_index = data_next - 1,
-            right_index = data_next + 1;
-                
+        if(!this.state.arrow_locked){
+            this.setState({arrow_locked: true});
+            var data_next = parseInt(_ev.target.getAttribute('data-next')),
+                left_arrow = document.getElementById('left-arrow'),
+                right_arrow = document.getElementById('right-arrow'),
+                left_index = data_next - 1,
+                right_index = data_next + 1;
+                    
             if(left_index < 0){
                 left_index = this.state.items_backup.length - 1;
             }
@@ -91,8 +94,11 @@ class Carousel extends Component {
             left_arrow.setAttribute('data-next',left_index);
             right_arrow.setAttribute('data-next',right_index);
 
-        this.setState({index_item: data_next});
-
+            this.setState({index_item: data_next}, function(){
+                this.setState({arrow_locked: false});
+            });
+        }
+        
     }
 
 }

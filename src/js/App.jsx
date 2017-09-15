@@ -96,7 +96,7 @@ class App extends Component {
         this.setState({cookie: array_aux});
         this.setState({historic_items: array_aux});
         this.setCookie('starwars-historic', JSON.stringify(array_aux));
-            
+        this.setState({ check_film: true});
         fetch(data_url)
             .then((_response) => {
                 return _response.json()
@@ -105,7 +105,6 @@ class App extends Component {
                 if(_film != undefined){
                     this.setState({ film_selected: _film });
                     this.setState({ film_selected_url: data_url });
-                    this.setState({ check_film: true});                    
                 }                
             })
     }

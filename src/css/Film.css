@@ -44,7 +44,7 @@
 .Film-title-content{
     position: absolute;
 	top: 100%;
-	animation: scroll 100s linear 4s infinite;
+	animation: scroll 75s linear 2s infinite;
 }
 
 @keyframes scroll {
@@ -72,3 +72,10 @@
     padding: 0.3em;    
 }
 
+.Film-spinner-container{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.23);
+    display: inline-flex;
+    position: relative;
+    text-align: center;
+}

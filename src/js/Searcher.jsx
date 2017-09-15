@@ -41,7 +41,7 @@ class Searcher extends Component {
             return (
                 <div className="Searcher">
                     <div className="Searcher-spinner-container">
-                        <span className="Carousel-loading spinner"></span>
+                        <span className="spinner"></span>
                     </div>
                     
                 </div>
