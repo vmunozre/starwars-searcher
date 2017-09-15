@@ -6,6 +6,28 @@ body {
   color: white;
 }
 
+.Joke-img{
+  width: 10em;
+  height: 10em;
+  position: absolute;
+  animation: animateJoke 15.7s linear infinite;
+  overflow: hidden;
+}
+
+@keyframes animateJoke {
+  from {
+    top: 150%;
+    width: 10em;
+    height: 10em;
+  }
+  to {
+    top: -50%;
+    width: 50em;
+    height: 50em;
+  }
+}
+
+
 .spinner {
   height: 5em;
   width: 5em;

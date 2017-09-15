@@ -6,6 +6,7 @@ import Searcher from './Searcher.jsx';
 import Historic from './Historic.jsx';
 import Carousel from './Carousel.jsx';
 import Film from './Film.jsx';
+import KonamiCode from './KonamiCode.jsx';
 
 class App extends Component {
     constructor(props) {
@@ -41,6 +42,7 @@ class App extends Component {
                         <img src={logo} className="App-logo" alt="logo" />
                     </div>                    
                     {this.renderHome()}
+                    <KonamiCode/>
                 </div>
             );
         } else {
@@ -51,6 +53,7 @@ class App extends Component {
                         <img src={logo} className="App-logo" alt="logo" />
                     </div>
                     {this.renderFilm()}
+                    <KonamiCode/>
                 </div>
             );
         }
