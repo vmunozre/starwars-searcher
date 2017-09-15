@@ -13,6 +13,7 @@ class Searcher extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
     componentWillMount() {
+        /* Get Films before load components */
         fetch('https://swapi.co/api/films/')
             .then((_response) => {
                 return _response.json()
@@ -53,6 +54,7 @@ class Searcher extends Component {
         this.setState({input_value: _e.target.value});
         if(_e.target.value.trim() != ''){
             this.setState({films_searched: this.state.items_backup});
+            /* Suggestion Filter */
             this.setState({films_searched: this.state.items_backup.filter(function(_film) {             
                 return _film.title.includes(_e.target.value) 
             })});

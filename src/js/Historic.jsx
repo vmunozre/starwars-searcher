@@ -24,6 +24,7 @@ class Historic extends Component {
     }
 
     onClickHistoric(_ev){
+        /* Toggle Hide */
         if(this.state.container_class == ''){
             this.setState({container_class: 'Historic-container'});
         } else {

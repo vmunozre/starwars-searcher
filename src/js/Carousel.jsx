@@ -15,6 +15,7 @@ class Carousel extends Component {
     }
 
     componentWillMount() {
+        /* Get Films before load components */
         fetch('https://swapi.co/api/people/')
             .then((_response) => {
                 return _response.json()
@@ -77,6 +78,7 @@ class Carousel extends Component {
     }
 
     onClickArrow(_ev){
+        /* Navigation action */
         if(!this.state.arrow_locked){
             this.setState({arrow_locked: true});
             var data_next = parseInt(_ev.target.getAttribute('data-next')),

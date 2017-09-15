@@ -19,7 +19,8 @@ class App extends Component {
         this.handlerOnClickItem = this.handlerOnClickItem.bind(this);
         this.handlerOnClickReturnHome = this.handlerOnClickReturnHome.bind(this);
     }
-    componentWillMount(){        
+    componentWillMount(){  
+        /* Load Cookie and set params */      
         var cookie = this.getCookie('starwars-historic'),
             historic_items = this.getCookie('starwars-historic');
         if(historic_items == undefined || historic_items == '' || historic_items == 'undefined'){
@@ -91,12 +92,13 @@ class App extends Component {
                 title: name
             },
             array_aux = this.state.historic_items;        
-        
+        /* Save action in the cookie */
         array_aux.push(historic_obj);
         this.setState({cookie: array_aux});
         this.setState({historic_items: array_aux});
         this.setCookie('starwars-historic', JSON.stringify(array_aux));
         this.setState({ check_film: true});
+        /* Load Film page */
         fetch(data_url)
             .then((_response) => {
                 return _response.json()
@@ -108,7 +110,8 @@ class App extends Component {
                 }                
             })
     }
-    handlerOnClickReturnHome(_ev){        
+    handlerOnClickReturnHome(_ev){   
+        /* Return Home*/     
         this.setState({ film_selected: {} }, function(){
             this.setState({ film_selected_url: ''});  
             this.setState({ check_film: false});
