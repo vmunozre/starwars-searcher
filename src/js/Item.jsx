@@ -4,7 +4,7 @@ class Item extends Component {
     render() {
         return (
             <div className="Item">
-                <span data-url="{this.props.url}">{this.props.name}</span>
+                <span onClick={this.props.onClickHandler} data-url={this.props.url}>{this.props.name}</span>
             </div>     
         );
     }

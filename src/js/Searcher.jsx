@@ -21,7 +21,7 @@ class Searcher extends Component {
                 if(_films != undefined){
                     this.setState({ items_backup: _films.results});
                 }                
-            })
+            });
     }
     render() {
         return (
@@ -30,7 +30,10 @@ class Searcher extends Component {
 
                 <input type="text" placeholder="Search Film" className="Searcher-input" value={this.state.input_value} onChange={this.handleChange}/>
                 
-                <ItemsList items={this.state.films_searched} />                
+                <ItemsList 
+                    items={this.state.films_searched}
+                    itemClickHandler={this.props.itemClickHandler}
+                />                
             </div>     
         );
     }

@@ -16,7 +16,11 @@ class ItemsList extends Component {
     itemsConstruct() {
         if(this.props != undefined && this.props.items != undefined){
             return this.props.items.map((_item) => {
-                return <Item name={_item.title} url={_item.url}/>;
+                return <Item 
+                            name={_item.title} 
+                            url={_item.url}
+                            onClickHandler = {this.props.itemClickHandler}
+                        />
             });
         }        
     }
