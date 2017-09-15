@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../assets/images/logo.png';
 import '../css/App.css';
+import '../css/Stars.css';
 import Searcher from './Searcher.jsx';
 import Historic from './Historic.jsx';
 import Carousel from './Carousel.jsx';
@@ -35,15 +36,17 @@ class App extends Component {
         if(!this.state.check_film){
             return (
                 <div className="App">
+                    <div id='stars'></div>
                     <div className="App-header">
                         <img src={logo} className="App-logo" alt="logo" />
-                    </div>
+                    </div>                    
                     {this.renderHome()}
                 </div>
             );
         } else {
             return (
                 <div className="App">
+                    <div id='stars'></div>
                     <div className="App-header">
                         <img src={logo} className="App-logo" alt="logo" />
                     </div>
