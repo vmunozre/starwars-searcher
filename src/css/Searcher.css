@@ -1,0 +1,16 @@
+.Searcher {
+    width: 50%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.Searcher-title {
+    margin-bottom: 0.2em;
+    text-align: left;
+}
+
+.Searcher-input {
+    font-size: 1em;
+    width: 100%;    
+    padding: 0.5em;
+}

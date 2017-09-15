@@ -1,0 +1,14 @@
+.CarouselItem {
+    display: inline-block;
+    padding: 0.5em;
+    font-size: 1.2em;
+    border: 0.2em solid #ffe200;
+    cursor: pointer;
+    color: white;
+    background-color: transparent;
+    margin: 0.3em;
+}
+
+.CarouselItem:hover {
+    background-color: rgba(105, 105, 105, 0.54);
+}

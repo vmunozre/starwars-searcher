@@ -1,0 +1,13 @@
+.Carousel{
+    width: 75%;
+    margin: 2em auto;
+    position: relative;
+}
+.Carousel-title{
+    margin-bottom: 0.3em;
+}
+
+.Carousel-container{
+    width: 100%;
+    background-color: rgba(39, 39, 39, 0.34);
+}

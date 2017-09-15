@@ -1,0 +1,11 @@
+.Item {
+    display: block;
+    padding: 0.5em;
+    font-size: 1.2em;
+    border-bottom: 0.05em solid #AAAAAA;
+    cursor: pointer;
+}
+
+.Item:hover {
+    background-color: rgba(223, 223, 223, 0.54);
+}

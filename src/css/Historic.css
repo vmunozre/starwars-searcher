@@ -1,0 +1,14 @@
+.Historic{
+    width: 55%;
+    margin: 2em auto;
+    position: relative;
+}
+
+.Historic-title{
+    text-align: left;
+    background-color: #272727;
+    padding: 0.5em;
+    border: 0.2em solid #6D6D6D;
+    border-radius: 0.5em;
+    cursor: pointer;
+}

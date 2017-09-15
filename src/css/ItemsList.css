@@ -1,0 +1,10 @@
+.ItemsList{
+    position: absolute;
+    display: block;
+    height: auto;
+    width: 100%;
+    background-color: white;
+    color:black;
+    text-align: left;
+    z-index: 2
+}
