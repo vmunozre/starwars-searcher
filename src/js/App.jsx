@@ -12,10 +12,23 @@ class App extends Component {
         this.state = { 
             film_selected_url: '',
             film_selected: {},
-            check_film: false
+            check_film: false,
+            historic_items: [],
+            cookie: ''
         }
         this.handlerOnClickItem = this.handlerOnClickItem.bind(this);
         this.handlerOnClickReturnHome = this.handlerOnClickReturnHome.bind(this);
+    }
+    componentWillMount(){        
+        var cookie = this.getCookie('starwars-historic'),
+            historic_items = this.getCookie('starwars-historic');
+        if(historic_items == undefined || historic_items == '' || historic_items == 'undefined'){
+            historic_items = [];
+        } else {
+            historic_items = JSON.parse(historic_items);
+        }
+        this.setState({cookie: cookie});
+        this.setState({historic_items: historic_items});
     }
     render() {
         if(!this.state.check_film){
@@ -50,11 +63,6 @@ class App extends Component {
                     director={this.state.film_selected.director}
                     producer={this.state.film_selected.producer}
                     release_date={this.state.film_selected.release_date}
-                    characters={this.state.film_selected.characters}
-                    planets={this.state.film_selected.planets}
-                    starships={this.state.film_selected.starships}
-                    vehicles={this.state.film_selected.vehicles}
-                    species={this.state.film_selected.species}
                 />                
             </div>
         );
@@ -63,15 +71,32 @@ class App extends Component {
     renderHome(){
         return (
             <div>
-                <Searcher itemClickHandler={this.handlerOnClickItem}/>
-                <Historic />
+                <Searcher 
+                    itemClickHandler={this.handlerOnClickItem}
+                />
+                <Historic 
+                    historic_items={this.state.historic_items} 
+                    itemClickHandler={this.handlerOnClickItem}
+                />
                 <Carousel />
             </div>
         );
     }
     
     handlerOnClickItem(_ev){        
-        var data_url = _ev.target.getAttribute("data-url");
+        var data_url = _ev.target.getAttribute("data-url"),
+            name = _ev.target.textContent,
+            historic_obj = {
+                url: data_url,
+                title: name
+            },
+            array_aux = this.state.historic_items;        
+        
+        array_aux.push(historic_obj);
+        this.setState({cookie: array_aux});
+        this.setState({historic_items: array_aux});
+        this.setCookie('starwars-historic', JSON.stringify(array_aux));
+            
         fetch(data_url)
             .then((_response) => {
                 return _response.json()
@@ -89,6 +114,28 @@ class App extends Component {
             this.setState({ film_selected_url: ''});  
             this.setState({ check_film: false});
         });                  
+    }
+
+    setCookie(_cname, _cvalue) {
+        var d = new Date();
+        d.setTime(d.getTime() + (10 * 24 * 60 * 60 * 1000));
+        var expires = "expires="+d.toUTCString();
+        document.cookie = _cname + "=" + _cvalue + ";" + expires + ";path=/";
+    }
+
+    getCookie(_cname) {
+        var name = _cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
     }
 }   
 

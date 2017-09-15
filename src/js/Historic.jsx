@@ -2,16 +2,35 @@ import React, { Component } from 'react';
 import '../css/Historic.css';
 import ItemsList from './ItemsList.jsx';
 class Historic extends Component {
-    render() {
+    constructor(props) {
+        super(props)
+        this.state = { 
+            container_class: 'Historic-container'
+        }
+        this.onClickHistoric = this.onClickHistoric.bind(this);
+    }
+    render() {        
         return (
-            <div className="Historic">                
-                <h3 className="Historic-title">Historic</h3>               
-                <div className="Historic-container">                    
-                   <ItemsList/>
+            <div className="Historic" onClick={this.onClickHistoric}>                
+                <h3 className="Historic-title">History</h3>               
+                <div className={this.state.container_class}>                    
+                    <ItemsList 
+                        items={this.props.historic_items}
+                        itemClickHandler={this.props.itemClickHandler}
+                    />
                 </div>
             </div>    
         );
     }
+
+    onClickHistoric(_ev){
+        if(this.state.container_class == ''){
+            this.setState({container_class: 'Historic-container'});
+        } else {
+            this.setState({container_class: ''});
+        }
+    }
+
 }
 
 export default Historic;

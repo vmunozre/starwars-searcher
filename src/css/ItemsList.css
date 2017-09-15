@@ -2,6 +2,8 @@
     position: absolute;
     display: block;
     height: auto;
+    max-height: 10em;
+    overflow-y: scroll;
     width: 100%;
     background-color: white;
     color:black;

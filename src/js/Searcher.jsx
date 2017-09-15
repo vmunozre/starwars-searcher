@@ -6,7 +6,7 @@ class Searcher extends Component {
     constructor(props) {
         super(props)
         this.state = { 
-            items_backup: [],
+            items_backup: undefined,
             films_searched: [],
             input_value: ''
         }
@@ -24,18 +24,29 @@ class Searcher extends Component {
             });
     }
     render() {
-        return (
-            <div className="Searcher">
-                <h2 className="Searcher-title">Search Film</h2>
+        if(this.state.items_backup != undefined){    
+            return (
+                <div className="Searcher">
+                    <h2 className="Searcher-title">Search Film</h2>
 
-                <input type="text" placeholder="Search Film" className="Searcher-input" value={this.state.input_value} onChange={this.handleChange}/>
-                
-                <ItemsList 
-                    items={this.state.films_searched}
-                    itemClickHandler={this.props.itemClickHandler}
-                />                
-            </div>     
-        );
+                    <input type="text" placeholder="Search Film" className="Searcher-input" value={this.state.input_value} onChange={this.handleChange}/>
+                    
+                    <ItemsList 
+                        items={this.state.films_searched}
+                        itemClickHandler={this.props.itemClickHandler}
+                    />                
+                </div>     
+            );
+        } else {
+            return (
+                <div className="Searcher">
+                    <div className="Searcher-spinner-container">
+                        <span className="Carousel-loading spinner"></span>
+                    </div>
+                    
+                </div>
+            );
+        }
     }
 
     handleChange(_e){

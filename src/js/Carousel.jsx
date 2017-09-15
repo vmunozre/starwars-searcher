@@ -29,7 +29,7 @@ class Carousel extends Component {
         return (
             <div className="Carousel">
                 <h2 className="Carousel-title">Characters</h2>                
-                <div className="Carousel-container">
+                <div className="Carousel-center-container">
                     {this.renderItems()}
                 </div>
             </div>    
@@ -48,7 +48,10 @@ class Carousel extends Component {
             }
             return (
                 <div className="Carousel-container">
-                    <img id="left-arrow" className="Carousel-arrow" src={left_arrow} title="Left arrow" data-next={left_index} onClick={this.onClickArrow}/>
+                    <div class="Carousel-arrow-container">
+                        <img id="left-arrow" className="Carousel-arrow" src={left_arrow} title="Left arrow" data-next={left_index} onClick={this.onClickArrow}/>
+                    </div>
+                   
                     <CarouselItem 
                         name={this.state.items_backup[this.state.index_item].name} 
                         height={this.state.items_backup[this.state.index_item].height} 
@@ -56,13 +59,17 @@ class Carousel extends Component {
                         gender={this.state.items_backup[this.state.index_item].gender}
                         birth_year={this.state.items_backup[this.state.index_item].birth_year}
                     />
-                    <img id="right-arrow" className="Carousel-arrow" src={right_arrow} title="Right arrow" data-next={right_index} onClick={this.onClickArrow}/>
+                    <div class="Carousel-arrow-container">
+                        <img id="right-arrow" className="Carousel-arrow" src={right_arrow} title="Right arrow" data-next={right_index} onClick={this.onClickArrow}/>
+                    </div>
                 </div>
             );
             
         } else {
             return (
-                <span>Loading...</span>
+                <div className="Carousel-container">
+                    <span className="Carousel-loading spinner"></span>
+                </div>
             );
         }
         

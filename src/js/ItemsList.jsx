@@ -14,7 +14,7 @@ class ItemsList extends Component {
     }
 
     itemsConstruct() {
-        if(this.props != undefined && this.props.items != undefined){
+        if(this.props.items != undefined){            
             return this.props.items.map((_item) => {
                 return <Item 
                             name={_item.title} 

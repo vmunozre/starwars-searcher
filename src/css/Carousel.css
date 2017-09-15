@@ -1,17 +1,31 @@
 .Carousel{
-    width: 75%;
+    width: 35%;
     margin: 2em auto;
     position: relative;
 }
 .Carousel-title{
     margin-bottom: 0.3em;
 }
-
+.Carousel-center-container{
+    position: absolute;
+    left: 50%;
+}
 .Carousel-container{
     width: 100%;
-    background-color: rgba(39, 39, 39, 0.34);
+    background-color: rgba(0, 0, 0, 0.23);
+    display: inline-flex;
+    position: relative;
+    left: -50%;
 }
 
 .Carousel-arrow{
-    width: 2em;    
+    width: 5em;
+    height: 100%;
+    margin: 0 auto;
+    cursor: pointer;  
+    float: le;  
+}
+
+.Carousel-loading{
+    margin-top:2em;
 }

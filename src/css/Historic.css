@@ -1,14 +1,19 @@
 .Historic{
     width: 55%;
-    margin: 2em auto;
+    margin: 0 auto;
     position: relative;
 }
 
 .Historic-title{
     text-align: left;
-    background-color: #272727;
+    background-color: #000000;
     padding: 0.5em;
-    border: 0.2em solid #6D6D6D;
+    border: 0.2em solid #FFE606;
     border-radius: 0.5em;
     cursor: pointer;
+    margin-bottom: 0.2em;
+}
+
+.Historic-container{
+    display: none;
 }
