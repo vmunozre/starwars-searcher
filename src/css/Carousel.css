@@ -11,3 +11,7 @@
     width: 100%;
     background-color: rgba(39, 39, 39, 0.34);
 }
+
+.Carousel-arrow{
+    width: 2em;    
+}

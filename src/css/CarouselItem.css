@@ -3,12 +3,20 @@
     padding: 0.5em;
     font-size: 1.2em;
     border: 0.2em solid #ffe200;
+    border-radius: 1em;
     cursor: pointer;
     color: white;
     background-color: transparent;
     margin: 0.3em;
+    width: 20em;
 }
 
-.CarouselItem:hover {
-    background-color: rgba(105, 105, 105, 0.54);
+.CarouselItem-title{
+    font-size: 200%;
+    margin: 0.5em;
+}
+.CarouselItem-info{
+    display: block;
+    font-size: 1.2em;
+    padding: 0.3em;    
 }
