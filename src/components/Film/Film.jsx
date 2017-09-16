@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import btn_return from '../assets/images/return.svg';
-import '../css/Film.css';
+import btn_return from '../../assets/images/return.svg';
+import './Film.css';
 class Film extends Component {
     render() {
-        if(this.props.episode_id != undefined){
+        if(this.props.episode_id !== undefined){
             return (
                 <div className="Film">
-                    <img onClick={this.props.btnReturnClickHanlder} className="Film-btn-return" src={btn_return} title="Return Home"/>
+                    <img onClick={this.props.btnReturnClickHanlder} className="Film-btn-return" src={btn_return} title="Return Home" alt="Return Home"/>
                     <h1>Episodie {this.props.episode_id} - {this.props.title}</h1>                
                     <div>
                         <div className="Film-intro">

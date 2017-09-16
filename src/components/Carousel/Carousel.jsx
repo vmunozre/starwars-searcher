@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import left_arrow from '../assets/images/left-arrow.svg';
-import right_arrow from '../assets/images/right-arrow.svg';
-import '../css/Carousel.css';
-import CarouselItem from './CarouselItem.jsx';
+import left_arrow from '../../assets/images/left-arrow.svg';
+import right_arrow from '../../assets/images/right-arrow.svg';
+import './Carousel.css';
+import CarouselItem from '../CarouselItem/CarouselItem';
 class Carousel extends Component {
     constructor(props) {
         super(props)
@@ -23,17 +23,17 @@ class Carousel extends Component {
                 return _response.json()
             })
             .then((_people) => {
-                if(_people != undefined){
+                if(_people !== undefined){
                     this.setState({ items_backup: _people.results});
 
                     /* Save next and prev page if exist */
-                    if(_people.next != undefined){
+                    if(_people.next !== undefined){
                         this.setState({next_page:_people.next});
                     } else {
                         this.setState({next_page:''});
                     }
 
-                    if(_people.previous != undefined){
+                    if(_people.previous !== undefined){
                         this.setState({prev_page:_people.previous});
                     } else {
                         this.setState({prev_page:''});
@@ -55,16 +55,16 @@ class Carousel extends Component {
     }
 
     renderItems(){
-        if(this.state.items_backup != undefined && this.state.items_backup.length > 0){             
+        if(this.state.items_backup !== undefined && this.state.items_backup.length > 0){             
             var left_index = this.state.index_item - 1,
                 right_index = this.state.index_item + 1,      
                 item = this.state.items_backup[this.state.index_item];
-            if(item != undefined){
+            if(item !== undefined){
             
                 return (
                     <div className="Carousel-container">
-                        <div class="Carousel-arrow-container">
-                            <img id="left-arrow" className="Carousel-arrow" src={left_arrow} title="Left arrow" data-next={left_index} onClick={this.onClickArrow}/>
+                        <div className="Carousel-arrow-container">
+                            <img id="left-arrow" className="Carousel-arrow" src={left_arrow} title="Left arrow" data-next={left_index} onClick={this.onClickArrow} alt="left arrow"/>
                         </div>
                     
                         <CarouselItem 
@@ -74,8 +74,8 @@ class Carousel extends Component {
                             gender={item.gender}
                             birth_year={item.birth_year}
                         />
-                        <div class="Carousel-arrow-container">
-                            <img id="right-arrow" className="Carousel-arrow" src={right_arrow} title="Right arrow" data-next={right_index} onClick={this.onClickArrow}/>
+                        <div className="Carousel-arrow-container">
+                            <img id="right-arrow" className="Carousel-arrow" src={right_arrow} title="Right arrow" data-next={right_index} onClick={this.onClickArrow} alt="right arrow"/>
                         </div>
                     </div>
                 );
@@ -118,7 +118,7 @@ class Carousel extends Component {
     loadPage(_page){
         /* Load character page */
         this.setState({ items_backup: []});
-        if(_page == ''){
+        if(_page === ''){
             _page = 'https://swapi.co/api/people?page=1';
         }
         fetch(_page)
@@ -126,17 +126,17 @@ class Carousel extends Component {
                 return _response.json()
             })
             .then((_people) => {
-                if(_people != undefined){
+                if(_people !== undefined){
                     this.setState({ items_backup: _people.results});
 
                     /* Save next and prev page if exist */
-                    if(_people.next != undefined){
+                    if(_people.next !== undefined){
                         this.setState({next_page:_people.next});
                     } else {
                         this.setState({next_page:''});
                     }
 
-                    if(_people.previous != undefined){
+                    if(_people.previous !== undefined){
                         this.setState({prev_page:_people.previous});
                     } else {
                         this.setState({prev_page:''});

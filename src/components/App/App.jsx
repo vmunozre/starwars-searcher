@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import logo from '../assets/images/logo.png';
-import '../css/App.css';
-import '../css/Stars.css';
-import Searcher from './Searcher.jsx';
-import Historic from './Historic.jsx';
-import Carousel from './Carousel.jsx';
-import Film from './Film.jsx';
-import KonamiCode from './KonamiCode.jsx';
+import logo from '../../assets/images/logo.png';
+import './App.css';
+import '../../css/Stars.css';
+import Searcher from '../Searcher/Searcher';
+import Historic from '../Historic/Historic';
+import Carousel from '../Carousel/Carousel';
+import Film from '../Film/Film';
+import KonamiCode from '../KonamiCode/KonamiCode';
 
 class App extends Component {
     constructor(props) {
@@ -25,7 +25,7 @@ class App extends Component {
         /* Load Cookie and set params */      
         var cookie = this.getCookie('starwars-historic'),
             historic_items = this.getCookie('starwars-historic');
-        if(historic_items == undefined || historic_items == '' || historic_items == 'undefined'){
+        if(historic_items === undefined || historic_items === '' || historic_items === 'undefined'){
             historic_items = [];
         } else {
             historic_items = JSON.parse(historic_items);
@@ -110,7 +110,7 @@ class App extends Component {
                 return _response.json()
             })
             .then((_film) => {
-                if(_film != undefined){
+                if(_film !== undefined){
                     this.setState({ film_selected: _film });
                     this.setState({ film_selected_url: data_url });
                 }                
@@ -136,10 +136,10 @@ class App extends Component {
         var ca = document.cookie.split(';');
         for(var i = 0; i < ca.length; i++) {
             var c = ca[i];
-            while (c.charAt(0) == ' ') {
+            while (c.charAt(0) === ' ') {
                 c = c.substring(1);
             }
-            if (c.indexOf(name) == 0) {
+            if (c.indexOf(name) === 0) {
                 return c.substring(name.length, c.length);
             }
         }

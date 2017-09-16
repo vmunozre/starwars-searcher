@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import joke1 from '../assets/images/joke1.svg';
-import jokesound from '../assets/images/jokesound.ogg';
-import '../css/Item.css';
+import joke1 from '../../assets/images/joke1.svg';
+import jokesound from '../../assets/images/jokesound.ogg';
+
 class KonamiCode extends Component {
     constructor(props) {
         super(props)
@@ -24,7 +24,7 @@ class KonamiCode extends Component {
         } else {
             return (
                 <div>
-                    <img src={joke1} className="Joke-img"/>
+                    <img src={joke1} className="Joke-img" alt="Joke image"/>
                     <audio autoPlay loop hidden>
                         <source src={jokesound} type="audio/ogg"/>
                     </audio>
@@ -51,11 +51,11 @@ class KonamiCode extends Component {
     }
 
     array_equal_array(_array1, _array2) {
-    if (_array1.length != _array2.length) {
+    if (_array1.length !== _array2.length) {
         return false;
     } else {
         for (var i = 0, iLen = _array1.length; i < iLen; i++) {
-            if (_array1[i] != _array2[i]) {
+            if (_array1[i] !== _array2[i]) {
                 return false;
             }
         }

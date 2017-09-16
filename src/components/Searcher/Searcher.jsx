@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../css/Searcher.css';
-import ItemsList from './ItemsList.jsx';
+import './Searcher.css';
+import ItemsList from '../ItemsList/ItemsList';
 
 class Searcher extends Component {
     constructor(props) {
@@ -19,13 +19,13 @@ class Searcher extends Component {
                 return _response.json()
             })
             .then((_films) => {
-                if(_films != undefined){
+                if(_films !== undefined){
                     this.setState({ items_backup: _films.results});
                 }                
             });
     }
     render() {
-        if(this.state.items_backup != undefined){    
+        if(this.state.items_backup !== undefined){    
             return (
                 <div className="Searcher">
                     <h2 className="Searcher-title">Search Film</h2>
@@ -52,7 +52,7 @@ class Searcher extends Component {
 
     handleChange(_e){
         this.setState({input_value: _e.target.value});
-        if(_e.target.value.trim() != ''){
+        if(_e.target.value.trim() !== ''){
             this.setState({films_searched: this.state.items_backup});
             /* Suggestion Filter */
             this.setState({films_searched: this.state.items_backup.filter(function(_film) {             

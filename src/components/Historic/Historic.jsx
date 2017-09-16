@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../css/Historic.css';
-import ItemsList from './ItemsList.jsx';
+import './Historic.css';
+import ItemsList from '../ItemsList/ItemsList';
 class Historic extends Component {
     constructor(props) {
         super(props)
@@ -25,7 +25,7 @@ class Historic extends Component {
 
     onClickHistoric(_ev){
         /* Toggle Hide */
-        if(this.state.container_class == ''){
+        if(this.state.container_class === ''){
             this.setState({container_class: 'Historic-container'});
         } else {
             this.setState({container_class: ''});

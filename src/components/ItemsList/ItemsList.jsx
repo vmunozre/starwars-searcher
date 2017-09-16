@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../css/ItemsList.css';
-import Item from './Item.jsx';
+import './ItemsList.css';
+import Item from '../Item/Item';
 
 class ItemsList extends Component {
     render() {
@@ -14,14 +14,15 @@ class ItemsList extends Component {
     }
 
     itemsConstruct() {
-        if(this.props.items != undefined){            
-            return this.props.items.map((_item) => {
-                return <Item 
+        if(this.props.items !== undefined){            
+            return (this.props.items.map((_item) => {
+                return (<Item 
                             name={_item.title} 
                             url={_item.url}
                             onClickHandler = {this.props.itemClickHandler}
                         />
-            });
+                );
+            }));
         }        
     }
 }
