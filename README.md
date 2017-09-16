@@ -14,7 +14,7 @@ $ cd ./starwars-searcher
 $ npm install
 $ npm start
 ```
-Con esto tendremos se nos abrirá una ventana del navegador con el proyecto funcionando!
+Con esto se nos abrirá una ventana del navegador con el proyecto funcionando!
 
 ## Componentes realizados
 
